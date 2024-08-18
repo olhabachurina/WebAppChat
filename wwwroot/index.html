@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalkSpace - Real-Time Chat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div id="registerBlock" class="register-block mt-5">
+            <h3>Register</h3>
+            <input id="txtRegisterUserName" type="text" placeholder="Username" class="form-control mb-2" />
+            <input id="txtRegisterPassword" type="password" placeholder="Password" class="form-control mb-2" />
+            <input id="btnRegister" type="button" value="Register" class="btn btn-primary" />
+            <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </div>
+
+        <div id="loginBlock" class="login-block mt-5" style="display:none;">
+            <h3>Enter your username:</h3>
+            <input id="txtUserName" type="text" placeholder="Username" class="form-control mb-2" />
+            <input id="txtPassword" type="password" placeholder="Password" class="form-control mb-2" />
+            <input id="btnLogin" type="button" value="Login" class="btn btn-primary" />
+            <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+
+        <div id="chatBody" class="chat-room" style="display:none;">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Active Users:</h4>
+                    <ul id="userList" class="list-group"></ul>
+                </div>
+                <div class="col-md-9">
+                    <div id="chatroom" class="chatroom"></div>
+                    <div class="message-input mt-3">
+                        <input type="text" id="message" placeholder="Type your message here..." class="form-control mb-2" />
+                        <input type="button" id="sendmessage" value="Send" class="btn btn-success" />
+                        <input type="button" id="exitChat" class="btn btn-danger ml-2" value="Exit" />
+                        <input type="button" id="showFilterPopup" value="Search" class="btn btn-info ml-2" /> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="filterOverlay"></div>
+        <div id="filterPopup">
+            <h3>Search</h3>
+            <input type="text" id="filterUsername" placeholder="Username" />
+            <input type="text" id="filterKeyword" placeholder="Keyword" />
+            <input type="date" id="filterStartDate" placeholder="Start dateа" />
+            <input type="date" id="filterEndDate" placeholder="End date" />
+            <button id="applyFilters">Search</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.18/signalr.min.js"></script>
+    <script src="/script.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            toastr.info('Welcome to the chat TalkSpace!');
+
+            $('#showLogin').click(function () {
+                $('#registerBlock').hide();
+                $('#loginBlock').show();
+            });
+
+            $('#showRegister').click(function () {
+                $('#loginBlock').hide();
+                $('#registerBlock').show();
+            });
+
+            $('#exitChat').click(function () {
+                toastr.warning('Are you leaving so quickly? See you again!');
+            });
+
+          
+            $('#showFilterPopup').click(function () {
+                $('#filterPopup').fadeIn();
+                $('#filterOverlay').fadeIn();
+            });
+
+            $('#filterOverlay').click(function () {
+                $('#filterPopup').fadeOut();
+                $('#filterOverlay').fadeOut();
+            });
+
+            $('#applyFilters').click(function () {
+                $('#filterPopup').fadeOut();
+                $('#filterOverlay').fadeOut();
+               
+            });
+        });
+    </script>
+</body>
+</html> 

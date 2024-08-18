@@ -1,0 +1,180 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgba(255, 183, 197, 0.5), rgba(186, 227, 241, 0.5)), url('/fon.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+h3, h4 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6A1B9A; /* Сиреневый цвет */
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+#btnRegister, #sendmessage {
+    background: linear-gradient(135deg, #8E2DE2, #4A00E0); /* Градиент от фиолетового к сиреневому */
+    color: #fff;
+}
+
+#btnLogin {
+    background: linear-gradient(135deg, #00C9FF, #92FE9D); /* Градиент от бирюзового к зелёному */
+    color: #fff;
+}
+
+#exitChat {
+    background: linear-gradient(135deg, #FF512F, #DD2476); /* Градиент от красного к розовому */
+    color: #fff;
+}
+
+#showFilterPopup {
+    background: linear-gradient(135deg, #FFC371, #FF5F6D); /* Градиент от оранжевого к розовому */
+    color: #fff;
+}
+
+#userList li {
+    font-size: 18px;
+    color: #4A00E0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(186, 227, 241, 0.7); /* Лёгкий бирюзовый фон */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+    .message:nth-child(odd) {
+        background: linear-gradient(135deg, #C9FFBF, #FFAFBD); /* Градиент для нечетных сообщений */
+    }
+
+    .message:nth-child(even) {
+        background: linear-gradient(135deg, #FBC2EB, #A6C1EE); /* Градиент для четных сообщений */
+    }
+
+#filterPopup h3 {
+    font-size: 24px;
+    color: #6A1B9A;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#filterPopup input, #filterPopup button {
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+#filterPopup button {
+    background-color: #6A1B9A;
+    color: #fff;
+    cursor: pointer;
+}
+
+    #filterPopup button:hover {
+        background-color: #8E2DE2;
+    }
+#toast-container > .toast {
+    background-color: rgba(50, 50, 50, 1); /* Непрозрачный темный фон */
+    color: #FFFFFF; /* Белый текст для контраста */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для лучшего выделения */
+    border-radius: 8px; /* Слегка закругленные углы */
+}
+
+#toast-container > .toast-warning {
+    background-color: rgba(255, 152, 0, 1); /* Оранжевый цвет для предупреждений */
+    color: #FFFFFF;
+}
+
+#toast-container > .toast-success {
+    background-color: rgba(76, 175, 80, 1); /* Зеленый цвет для успешных операций */
+    color: #FFFFFF;
+}
+
+#toast-container > .toast-error {
+    background-color: rgba(244, 67, 54, 1); /* Красный цвет для ошибок */
+    color: #FFFFFF;
+}
+notification-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.notification {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+    .notification.success {
+        background-color: #28a745;
+    }
+
+    .notification.error {
+        background-color: #dc3545;
+    }
+
+    .notification.info {
+        background-color: #17a2b8;
+    }
+
+    .notification.warning {
+        background-color: #ffc107;
+    }
